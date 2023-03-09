@@ -2,25 +2,43 @@ codeunit 60091 TestCUDemo
 {
     Subtype = Test;
     // Rules
-    // an integer 'value'
-    // return the value 
+    // an integer 'value' - done
+    // return the value  - done 
     // devided by 3 = Fizz
     // devided by 5 = Buzz
     // devided by 3 & 5 = FizzBuzz
 
+    // 0
+    // 1
+    // 2
 
-    [test]
-    procedure FirstTestDemo()
+
+    [Test]
+    procedure IntergerReturnSameValue()
     begin
-        //Given
+        //Given the Value of
+        ValueIn := 2;
+        //When we call the function with the defined value 
+        ReturnValue := FuzzBizzTddCodeunit.CalcValue(ValueIN);
+        //Then 
+        Assert.AreEqual(Format(ValueIn), ReturnValue, 'we send 2 in');
+    end;
 
-        //When 
-
-        //Then we check if the EXPECTED value - 2  - is equal to the ACTUAL value
+    [Test]
+    procedure DevidedBy3FizzReturn()
+    begin
+        //Given the Value of
+        ValueIn := 3;
+        //When we call the function with the defined value 
+        ReturnValue := FuzzBizzTddCodeunit.CalcValue(ValueIN);
+        //Then 
+        Assert.AreEqual(Format(ValueIn), 'Fizz', 'we send 3 in');
     end;
 
     var
         FuzzBizzTddCodeunit: Codeunit FuzzBizzTddDemo;
         Assert: Codeunit Assert;
+        ValueIn: Integer;
+        ReturnValue: text;
 
 }
